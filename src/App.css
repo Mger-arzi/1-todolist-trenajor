@@ -1,0 +1,22 @@
+.App {
+  padding: 30px;
+  display: flex;
+}
+.App_2 {
+  padding: 30px;
+  display: flex;
+}
+
+
+.App > div {
+  margin-right: 50px;
+}
+.App_2> div {
+  margin-right: 50px;
+}
+.todoList{
+  border: 1px solid rgb(130, 4, 247);
+  border-radius: 5px;
+  background-color: rgba(69, 214, 103, 0.9);
+  padding: 10px;
+}
