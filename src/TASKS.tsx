@@ -16,16 +16,47 @@ type TasksTypeProps = {
 type PropsType = {
 	data:TypeDataProps
 }
-export const TASKS: React.FC<PropsType> = ({ data}) => {
+
+const topCars = [
+	{manufacturer:'BMW', model:'m5cs'},
+	{manufacturer:'Mercedes', model:'e63s'},
+	{manufacturer:'Audi', model:'rs6'}
+	]
+
+	type topCarType = {
+		cars: Array<TypeCar>
+	}
+
+type TypeCar = {
+	manufacturer: string
+	model: string
+}
+
+
+export const TASKS: React.FC<topCarType> = ({ cars}) => {
 	return (
 		<div>
-			<h2>{data.title}</h2>
+			<table >
+				<tbody>
+					<tr>
+						<td></td>
+						<td>cell is row 0 column 1</td>
+					</tr>
+					<tr>
+						<td>cell is row 1 column 0</td>
+						<td>cell is row 1 column 1</td>
+					</tr>
+				</tbody>
+			</table>
+	
+
+			{/* <h2>{data.title}</h2>
 			<ul>
 				{data.tasks.map(element => <li>{element.title}</li>)}
 			</ul>
 			<ul>
 				{data.students.map(element => <div>{element}</div>)}
-			</ul>
+			</ul> */}
 		</div>
 	);
 };

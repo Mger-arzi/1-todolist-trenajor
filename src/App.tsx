@@ -13,6 +13,16 @@ export function App() {
         title: "What to do",
         tasks: [
             {taskId: 1, title: "HTML&CSS2", isDone: true},
+            {taskId: 1, title: "HTML&CSS2", isDone: true},
+            {taskId: 1, title: "HTML&CSS2", isDone: true},
+            {taskId: 1, title: "HTML&CSS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true},
             {taskId: 2, title: "JS2", isDone: true}
         ],
         students: [
@@ -126,8 +136,8 @@ export function App() {
 
     return (
         <div className="App">
-            <TASKS data={data1}/>
-            <TASKS data={data2}/>
+            <TASKS cars={}/>
+            {/* <TASKS data={data2}/> */}
 
         </div>
     );
