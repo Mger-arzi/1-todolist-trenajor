@@ -1,61 +1,62 @@
-import React from 'react';
+import React from "react";
 
 type TypeDataProps = {
-	title: string
-	tasks:Array<TasksTypeProps>
-	students: Array<string>
-
-}
+	title: string;
+	tasks: Array<TasksTypeProps>;
+	students: Array<string>;
+};
 
 type TasksTypeProps = {
-	taskId: number
-	title: string
-	isDone: boolean
-
-}
+	taskId: number;
+	title: string;
+	isDone: boolean;
+};
 type PropsType = {
-	data:TypeDataProps
-}
+	data: TypeDataProps;
+};
 
-const topCars = [
-	{manufacturer:'BMW', model:'m5cs'},
-	{manufacturer:'Mercedes', model:'e63s'},
-	{manufacturer:'Audi', model:'rs6'}
-	]
-
-	type topCarType = {
-		cars: Array<TypeCar>
-	}
+export type topCarType = {
+	cars: Array<TypeCar>;
+};
 
 type TypeCar = {
-	manufacturer: string
-	model: string
-}
+	manufacturer: string;
+	model: string;
+};
 
-
-export const TASKS: React.FC<topCarType> = ({ cars}) => {
+export const TASKS = (props: topCarType) => {
 	return (
 		<div>
-			<table >
+			<table>
 				<tbody>
 					<tr>
-						<td></td>
-						<td>cell is row 0 column 1</td>
+						{props.cars.map((element, index) => {
+							return <td key={index}>{index + 1}</td>;
+						})}
 					</tr>
 					<tr>
-						<td>cell is row 1 column 0</td>
-						<td>cell is row 1 column 1</td>
+						{props.cars.map((el) => (
+							<td>{el.model}</td>
+						))}
+					</tr>
+					<tr>
+						{props.cars.map((el) => (
+							<td>{el.manufacturer}</td>
+						))}
 					</tr>
 				</tbody>
 			</table>
-	
 
 			{/* <h2>{data.title}</h2>
 			<ul>
-				{data.tasks.map(element => <li>{element.title}</li>)}
+				{data.tasks.map((element) => (
+					<li>{element.title}</li>
+				))}
 			</ul>
 			<ul>
-				{data.students.map(element => <div>{element}</div>)}
+				{data.students.map((element) => (
+					<div>{element}</div>
+				))}
 			</ul> */}
 		</div>
 	);

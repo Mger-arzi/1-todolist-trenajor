@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { TASKS } from './TASKS';
-
+import { topCarType } from './TASKS';
 // Привет, ребята!
 // Давайте укрепим нашу текущую сессию!
 // -У вас есть 2 массива. Вам следует создать новый компонент TASKS, в котором вы будете рендерить эти массивы.
@@ -133,10 +133,14 @@ export function App() {
         ]
     }
    
-
+    const topCars = [
+		{manufacturer:'BMW', model:'m5cs'},
+		{manufacturer:'Mercedes', model:'e63s'},
+		{manufacturer:'Audi', model:'rs6'}
+		]
     return (
         <div className="App">
-            <TASKS cars={}/>
+            <TASKS  cars={topCars}/>
             {/* <TASKS data={data2}/> */}
 
         </div>
