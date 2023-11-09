@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import "./App.css";
 import { TASKS } from "./TASKS";
 import { topCarType } from "./TASKS";
-// Привет, ребята!
-// Давайте укрепим нашу текущую сессию!
-// -У вас есть 2 массива. Вам следует создать новый компонент TASKS, в котором вы будете рендерить эти массивы.
-// - Не забудьте назначить типы нашим данным.
+import NewFilter from "./NewFilter";
+
+export type MoneyType = {
+    banknote: string
+    nominal: number
+    number: string 
+}
+export type FilterType = "all" | "ruble" | "dollar"
 
 export function App() {
 	// const data1 = {
@@ -138,7 +142,10 @@ export function App() {
 	// 	{manufacturer:'Audi', model:'rs6'}
 	// 	]
 
-	const [money, setMoney] = useState([
+
+
+
+	const [money, setMoney] = useState<MoneyType[]>([
 		{ banknote: "dollar", nominal: 100, number: "a123456789" },
 		{ banknote: "dollar", nominal: 50, number: "b123456789" },
 		{ banknote: "ruble", nominal: 100, number: "c123456789" },
@@ -148,18 +155,43 @@ export function App() {
 		{ banknote: "dollar", nominal: 50, number: "j123456789" },
 		{ banknote: "ruble", nominal: 50, number: "h123456789" },
 	]);
+
+    const [fietered, setFieltered] = useState<FilterType>("all")
+
+    const clickFilterHandler = (nameButton: FilterType)=>{
+        setFieltered(nameButton)
+    }
+
+    let currentMoney = money
+    if(fietered === "ruble"){
+        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "ruble")
+    }
+    if(fietered === "dollar"){
+        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "dollar")
+    }
+
 	return (
-		<ul>
-			{money.map((objFromMoneyArr) => {
+        <>
+            <NewFilter filteredMoney={currentMoney} filterCallback={clickFilterHandler}/>
+{/* 
+        <ul>
+			{currentMoney.map((objFromMoneyArr, index) => {
 				return (
-					<li>
+					<li key={index}>
 						<span>{objFromMoneyArr.banknote}</span>
 						<span>{objFromMoneyArr.nominal}</span>
 						<span>{objFromMoneyArr.number}</span>
 					</li>
 				);
 			})}
-		</ul>
+		</ul> */}
+        {/* <div style={{marginLeft: "30px"}}>
+            <button onClick={ ()=> ClickFilterHandler("all")}>all</button>
+            <button onClick={ ()=> ClickFilterHandler("ruble")}>ruble</button>
+            <button onClick={ ()=> ClickFilterHandler("dollar")}>dollar</button>
+        </div> */}
+        </>
+	
 	);
 
 	return (
