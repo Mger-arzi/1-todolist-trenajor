@@ -5,9 +5,9 @@ import { topCarType } from "./TASKS";
 import NewFilter from "./NewFilter";
 
 export type MoneyType = {
-    banknote: string
-    nominal: number
-    number: string 
+	banknote: string
+	nominal: number
+	number: string
 }
 export type FilterType = "all" | "ruble" | "dollar"
 
@@ -156,25 +156,25 @@ export function App() {
 		{ banknote: "ruble", nominal: 50, number: "h123456789" },
 	]);
 
-    const [fietered, setFieltered] = useState<FilterType>("all")
+	const [fietered, setFieltered] = useState<FilterType>("all")
 
-    const clickFilterHandler = (nameButton: FilterType)=>{
-        setFieltered(nameButton)
-    }
+	const clickFilterHandler = (nameButton: FilterType) => {
+		setFieltered(nameButton)
+	}
 
-    let currentMoney = money
-    if(fietered === "ruble"){
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "ruble")
-    }
-    if(fietered === "dollar"){
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "dollar")
-    }
+	let currentMoney = money
+	if (fietered === "ruble") {
+		currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "ruble")
+	}
+	if (fietered === "dollar") {
+		currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "dollar")
+	}
 
 	return (
-        <>
-            <NewFilter filteredMoney={currentMoney} filterCallback={clickFilterHandler}/>
-{/* 
-        <ul>
+		<>
+			<NewFilter filteredMoney={currentMoney} filterCallback={clickFilterHandler} />
+			{/*
+      <ul>
 			{currentMoney.map((objFromMoneyArr, index) => {
 				return (
 					<li key={index}>
@@ -185,12 +185,12 @@ export function App() {
 				);
 			})}
 		</ul> */}
-        {/* <div style={{marginLeft: "30px"}}>
+      {/* <div style={{marginLeft: "30px"}}>
             <button onClick={ ()=> ClickFilterHandler("all")}>all</button>
             <button onClick={ ()=> ClickFilterHandler("ruble")}>ruble</button>
             <button onClick={ ()=> ClickFilterHandler("dollar")}>dollar</button>
         </div> */}
-        </>
+      </>
 	
 	);
 

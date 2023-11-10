@@ -12,7 +12,7 @@ const NewFilter = (props: NewFilterProps) => {
 
 	return (
 		<div>
-			 <ul>
+			<ul>
 			{filteredMoney.map((objFromMoneyArr, index) => {
 				return (
 					<li key={index}>
@@ -23,11 +23,11 @@ const NewFilter = (props: NewFilterProps) => {
 				);
 			})}
 		</ul>
-        <div style={{marginLeft: "30px"}}>
-            <button onClick={ ()=> filterCallback("all")}>all</button>
-            <button onClick={ ()=> filterCallback("ruble")}>ruble</button>
-            <button onClick={ ()=> filterCallback("dollar")}>dollar</button>
-        </div>
+			<div style={{marginLeft: "30px"}}>
+					<button onClick={ ()=> filterCallback("all")}>all</button>
+					<button onClick={ ()=> filterCallback("ruble")}>ruble</button>
+					<button onClick={ ()=> filterCallback("dollar")}>dollar</button>
+			</div>
 		</div>
 	);
 };
