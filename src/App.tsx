@@ -193,13 +193,7 @@ export function App() {
       </>
 	
 	);
-
-	return (
-		<div className="App">
-			{/* <TASKS  cars={topCars}/> */}
-			{/* <TASKS data={data2}/> */}
-		</div>
-	);
+	
 }
 
 // type TasksTypeProps = {
