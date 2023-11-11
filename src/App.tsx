@@ -3,8 +3,14 @@ import "./App.css";
 import { TASKS } from "./TASKS";
 import { topCarType } from "./TASKS";
 import NewFilter from "./NewFilter";
+import { MyFilter } from "./MyFilter";
 
 export type MoneyType = {
+	banknote: string
+	nominal: number
+	number: string
+}
+export type MyMoneyType = {
 	banknote: string
 	nominal: number
 	number: string
@@ -155,6 +161,16 @@ export function App() {
 		{ banknote: "dollar", nominal: 50, number: "j123456789" },
 		{ banknote: "ruble", nominal: 50, number: "h123456789" },
 	]);
+		const [Mymoney, setMyMoney] = useState<MyMoneyType[]>([
+		{ banknote: "dollar", nominal: 100, number: "a123456789" },
+		{ banknote: "dollar", nominal: 50, number: "b123456789" },
+		{ banknote: "ruble", nominal: 100, number: "c123456789" },
+		{ banknote: "dollar", nominal: 100, number: "d123456789" },
+		{ banknote: "dollar", nominal: 50, number: "e123456789" },
+		{ banknote: "ruble", nominal: 100, number: "f123456789" },
+		{ banknote: "dollar", nominal: 50, number: "j123456789" },
+		{ banknote: "ruble", nominal: 50, number: "h123456789" },
+	]);
 
 	const [fietered, setFieltered] = useState<FilterType>("all")
 
@@ -169,17 +185,19 @@ export function App() {
 	if (fietered === "dollar") {
 		currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "dollar")
 	}
+	let MyCurrentMoney = Mymoney
 	if (fietered === 100){
-		currentMoney = money.filter((filteredMoney) => filteredMoney.nominal === 100)
+		MyCurrentMoney = Mymoney.filter((filteredMoney) => filteredMoney.nominal === 100)
 	}
 	if (fietered === 50) {
-		currentMoney = money.filter((filteredMoney) => filteredMoney.nominal === 50)
+		MyCurrentMoney = Mymoney.filter((filteredMoney) => filteredMoney.nominal === 50)
 	}
 	
 
 	return (
 		<>
 			<NewFilter filteredMoney={currentMoney} filterCallback={clickFilterHandler} />
+			<MyFilter MyFilter = {MyCurrentMoney} MyFilterCollback={clickFilterHandler} />
 			{/*
       <ul>
 			{currentMoney.map((objFromMoneyArr, index) => {
