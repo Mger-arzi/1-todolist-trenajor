@@ -9,7 +9,7 @@ export type MoneyType = {
 	nominal: number
 	number: string
 }
-export type FilterType = "all" | "ruble" | "dollar"
+export type FilterType = "all" | "ruble" | "dollar"| 100 | 50
 
 export function App() {
 	// const data1 = {
@@ -169,6 +169,13 @@ export function App() {
 	if (fietered === "dollar") {
 		currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "dollar")
 	}
+	if (fietered === 100){
+		currentMoney = money.filter((filteredMoney) => filteredMoney.nominal === 100)
+	}
+	if (fietered === 50) {
+		currentMoney = money.filter((filteredMoney) => filteredMoney.nominal === 50)
+	}
+	
 
 	return (
 		<>
