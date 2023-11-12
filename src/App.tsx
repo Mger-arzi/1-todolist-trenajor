@@ -196,8 +196,10 @@ export function App() {
 
 	return (
 		<>
-			<NewFilter filteredMoney={currentMoney} filterCallback={clickFilterHandler} />
-			<MyFilter MyFilter = {MyCurrentMoney} MyFilterCollback={clickFilterHandler} />
+
+		
+			{/* <NewFilter filteredMoney={currentMoney} filterCallback={clickFilterHandler} /> */}
+			{/* <MyFilter MyFilter = {MyCurrentMoney} MyFilterCollback={clickFilterHandler} /> */}
 			{/*
       <ul>
 			{currentMoney.map((objFromMoneyArr, index) => {
